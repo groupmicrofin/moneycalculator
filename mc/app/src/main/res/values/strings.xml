@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">MoneyCalculator</string>
+    <string name="grpRegNo">Group Reg No:</string>
+    <string name="grpName">Group Name:</string>
+    <string name="startDate">Start Date:</string>
+    <string name="shareAmt">Share Amount:</string>
+    <string name="intRate">Interest Rate:</string>
+    <string name="register">Register</string>
+    <string name="hint.shareAmt">Enter Share Amount</string>
+    <string name="hint.grpRegNo">Enter Group Reg No</string>
+    <string name="hint.grpName">Enter Group Name</string>
+    <string name="hint.intRate">Enter interest rate per year</string>
 </resources>
