@@ -15,6 +15,11 @@
     <string name="ptId">Photo Id :</string>
     <string name="pin">Pin</string>
     <string name="add">Add</string>
+    <string name="login">Enter Pin</string>
+	<string name="loanDis"> Loan Disbusment Amount </string>
+    <string name="paidAmt"> Paid Amount </string>
+	<string name="meetDate"> Meeting Date</string>
+	<string name="addMeeting"> Add Meeting </string>
     <string name="hint.shareAmt">Enter Share Amount</string>
     <string name="hint.grpRegNo">Enter Group Reg No</string>
     <string name="hint.grpName">Enter Group Name</string>
@@ -26,7 +31,7 @@
     <string name="hint.phone">Enter Phone No</string>
     <string name="hint.ptId">Enter Photo Id</string>
     <string name="hint.epin">Enter Pin</string>
-    <string name="login">Enter Pin</string>
-
-
+	<string name="hint.loanDis">Enter Loan Disbursement Amount </string>
+	<string name="hint.paidAmt">Enter Total Paid Amount At the Time Of Meeting </string>
+	<string name="hint.meetDate">Enter Meeting Date </string>
 </resources>
