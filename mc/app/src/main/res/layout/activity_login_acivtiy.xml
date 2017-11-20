@@ -3,36 +3,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_column="2"
+    android:paddingBottom="16dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    android:paddingBottom="16dp"
-    android:layout_column="2"
-    tools:context=".LoginAcivtiy"
-    >
+    tools:context=".LoginAcivtiy">
 
-
-
-    <TextView android:text="@string/pin"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_column="0"
         android:layout_row="0"
-        />
-    <EditText android:id="@+id/epin"
+        android:text="@string/pin" />
+
+    <EditText
+        android:id="@+id/epin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/hint.epin"
         android:layout_column="1"
         android:layout_row="0"
-        android:inputType="numberPassword"
-        />
-    <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:layout_columnSpan="2" android:id="@+id/login" android:text="@string/add"
-        android:onClick="login"
+        android:hint="@string/hint.epin"
+        android:inputType="numberPassword" />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_column="0"
-        android:layout_row="7"
-        android:layout_gravity="center_horizontal"
-        />
+        android:layout_columnSpan="2"
+        android:layout_gravity="center"
+        android:layout_row="3"
+        android:onClick="login"
+        android:text="@string/label.login" />
 
 </GridLayout>

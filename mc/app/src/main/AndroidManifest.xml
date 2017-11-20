@@ -9,26 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GroupRegistrationActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-		<activity android:name=".MeetingEntryActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>        <activity android:name=".AccountRegistrationActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity
+            android:name=".GroupRegistrationActivity"
+            android:label="@string/title.grpReg"></activity>
+        <activity
+            android:name=".MeetingEntryActivity"
+            android:label="@string/title.meetEntry"></activity>
+        <activity
+            android:name=".AccountRegistrationActivity"
+            android:label="@string/title.acctReg"></activity>
         <activity android:name=".LoginAcivtiy">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,6 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".GroupActivity"></activity>
     </application>
 
 </manifest>
