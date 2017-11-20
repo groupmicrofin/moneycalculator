@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    android:layout_column="2"
+    tools:context=".MeetingEntryActivity">
+
+    <TextView android:text="@string/loanDis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_row="0"
+        />
+    <EditText android:id="@+id/disbusmentAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint.loanDis"
+        android:layout_column="1"
+        android:layout_row="0"
+        android:inputType="numberDecimal"
+        />
+    <TextView android:text="@string/paidAmt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_row="1"
+        />
+    <EditText android:id="@+id/paidAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint.paidAmt"
+        android:layout_column="1"
+        android:layout_row="1"
+        android:inputType="numberDecimal"
+        />
+    <TextView android:text="@string/meetDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_row="2"
+        />
+    <EditText android:id="@+id/groupMeetingDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_row="2"
+        android:inputType="date"
+        />
+    <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_columnSpan="2" android:id="@+id/addMeetingEntry" android:text="@string/addMeeting"
+        android:onClick="addMeeting"
+        android:layout_column="0"
+        android:layout_row="4"
+        android:layout_gravity="center"
+        />
+</GridLayout>
