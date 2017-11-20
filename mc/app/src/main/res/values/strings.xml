@@ -6,8 +6,27 @@
     <string name="shareAmt">Share Amount:</string>
     <string name="intRate">Interest Rate:</string>
     <string name="register">Register</string>
+    <string name="grpAcId">Group Account Id :</string>
+    <string name="grpMemberName"> Member Name :</string>
+    <string name="penLoan">Pending Loan :</string>
+    <string name="ltMeetDate">Last Meeting Date :</string>
+    <string name="email">Email Id :</string>
+    <string name="phone">Phone No :</string>
+    <string name="ptId">Photo Id :</string>
+    <string name="pin">Pin</string>
+    <string name="add">Add</string>
     <string name="hint.shareAmt">Enter Share Amount</string>
     <string name="hint.grpRegNo">Enter Group Reg No</string>
     <string name="hint.grpName">Enter Group Name</string>
     <string name="hint.intRate">Enter interest rate per year</string>
+    <string name="hint.grpAcId">Enter Group Account Id</string>
+    <string name="hint.grpMemberName">Enter Group Member Name</string>
+    <string name="hint.penLoan">Enter Pending Loan Id</string>
+    <string name="hint.emailId">Enter Email Id</string>
+    <string name="hint.phone">Enter Phone No</string>
+    <string name="hint.ptId">Enter Photo Id</string>
+    <string name="hint.epin">Enter Pin</string>
+    <string name="login">Enter Pin</string>
+
+
 </resources>

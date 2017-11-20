@@ -13,9 +13,7 @@ public class GroupRegistrationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_registration);
     }
-
-
-    public void registerGroup(View view){
+    public void addAccount(View view){
         String grpNameLabel = getString(R.string.grpName);
 
         EditText grpRegET = findViewById(R.id.groupRegNo);
@@ -39,4 +37,8 @@ public class GroupRegistrationActivity extends AppCompatActivity {
         Toast ourFirstToast = Toast.makeText(this,toastText,Toast.LENGTH_LONG);
         ourFirstToast.show();
     }
+
+
 }
+
+
