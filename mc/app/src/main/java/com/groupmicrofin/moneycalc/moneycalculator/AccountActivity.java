@@ -11,62 +11,66 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CursorAdapter;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
+
 import com.groupmicrofin.moneycalc.moneycalculator.util.GroupDatabaseManager;
-import java.security.acl.Group;
+
 import java.util.ArrayList;
+
 import static android.widget.ListView.*;
 
-public class GroupActivity extends AppCompatActivity {
+
+public class AccountActivity extends AppCompatActivity {
+    Long groupId = 0L;
+    String groupName = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_group);
+        setContentView(R.layout.activity_account);
 
-        final ListView listView = findViewById(R.id.listGroups);
+        ListView listView = findViewById(R.id.listAccounts);
         OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long groupId) {
-                String groupName = listView.getItemAtPosition(i).toString();
-                String tostMsg = "Item Selected:" + i + ":" + groupId +":GroupName:"+groupName;
-                Toast itemToast = Toast.makeText(GroupActivity.this, tostMsg, Toast.LENGTH_SHORT);
+                String tostMsg = "Item Selected:" + i + ":" + groupId;
+                Toast itemToast = Toast.makeText(AccountActivity.this, tostMsg, Toast.LENGTH_LONG);
                 itemToast.show();
-
-                Intent intentForAcctActivity = new Intent(GroupActivity.this, AccountActivity.class);
-                intentForAcctActivity.putExtra("grpName",groupName);
-                intentForAcctActivity.putExtra("grpId",groupId);
-                startActivity(intentForAcctActivity);
             }
         };
         listView.setOnItemClickListener(onItemClickListener);
 
         Bundle grpActBundle = getIntent().getExtras();
-        Long groupId = 0L;
+
         if (grpActBundle != null) {
             groupId = grpActBundle.getLong("grpId");
-            /*Toast itemToast = Toast.makeText(GroupActivity.this, "Group Created:"+groupId, Toast.LENGTH_LONG);
-            itemToast.show();*/
+            groupName = grpActBundle.getString("grpName");
+            Toast itemToast = Toast.makeText(AccountActivity.this, "Group Created:"+groupId+":"+groupName, Toast.LENGTH_LONG);
+            itemToast.show();
         }
 
-        GrpActFetchGroups grpActFetchGroups = new GrpActFetchGroups();
-        grpActFetchGroups.execute(groupId);
+        AcctListFetchAsyncTask acctListFetchAsyncTask = new AcctListFetchAsyncTask();
+        acctListFetchAsyncTask.execute(groupId);
 
     }
 
-    public void onGroupAddClick(View view) {
-        Intent grpRegActIntent = new Intent(GroupActivity.this, GroupRegistrationActivity.class);
-        startActivity(grpRegActIntent);
+    public void onAccountAddClick(View view) {
+        Intent actAddActIntent = new Intent(AccountActivity.this, AccountRegistrationActivity.class);
+        actAddActIntent.putExtra("grpName",groupName);
+        actAddActIntent.putExtra("grpId",groupId);
+        startActivity(actAddActIntent);
     }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
+
     }
 
-    private class GrpActFetchGroups extends AsyncTask<Long, Void, String[]> {
+
+    private class AcctListFetchAsyncTask extends AsyncTask<Long, Void, String[]> {
+
         @Override
         protected void onPreExecute() {
         }
@@ -79,10 +83,10 @@ public class GroupActivity extends AppCompatActivity {
             try {
                 SQLiteOpenHelper dbHelper;
                 SQLiteDatabase dbMngr;
-                dbHelper = new GroupDatabaseManager(GroupActivity.this);
+                dbHelper = new GroupDatabaseManager(AccountActivity.this);
                 dbMngr = dbHelper.getReadableDatabase();
-
-                grpDetailCur = dbMngr.query("society_master", new String[]{"_id", "society_name"}, null, null, null, null, null);
+                //TODO to handle per GROUP Vise
+                grpDetailCur = dbMngr.query("account_masters", new String[]{"_id", "member_name"}, null, null, null, null, null);
 
                 while (grpDetailCur.moveToNext()) {
                     accounts.add(grpDetailCur.getString(1));
@@ -93,6 +97,8 @@ public class GroupActivity extends AppCompatActivity {
                     dbMngr.close();
                 }
             } catch (SQLiteException sqlEx) {
+                /*Toast ex = Toast.makeText(AccountActivity.this, "Failed Adding Account", Toast.LENGTH_LONG);
+                ex.show();*/
             }
 
             String[] grpAccounts = new String[accounts.size()];
@@ -103,15 +109,13 @@ public class GroupActivity extends AppCompatActivity {
 
         protected void onPostExecute(String[] result) {
             if (result == null) {
-                String errMsg = getString(R.string.err_db);
-                Toast ex = Toast.makeText(GroupActivity.this, errMsg, Toast.LENGTH_LONG);
+                String errMsg = getString(R.string.err_actAdd);
+                Toast ex = Toast.makeText(AccountActivity.this, errMsg, Toast.LENGTH_LONG);
                 ex.show();
-            } else {
-                ListView listView = findViewById(R.id.listGroups);
-                ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(GroupActivity.this, android.R.layout.simple_list_item_1, result);
-                //CursorAdapter grpActCurAd = new SimpleCursorAdapter(GroupActivity.this, android.R.layout.simple_list_item_1, result, new String[]{"society_name"}, new int[]{android.R.id.text1}, 0);
+            } else if(result.length > 0) {
+                ListView listView = findViewById(R.id.listAccounts);
+                ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(AccountActivity.this, android.R.layout.simple_list_item_1, result);
                 listView.setAdapter(listAdapter);
-                //result.close();
             }
         }
     }

@@ -10,18 +10,18 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class GroupDatabaseManager extends SQLiteOpenHelper {
 
-    public static final String DB_NAME="groupmoneycalc1";
+    public static final String DB_NAME = "moneycalc3";
     //public static final String DB_NAME=null;
     public static final int DB_VERSION = 1;
 
-    public GroupDatabaseManager(Context context){
-        super(context,DB_NAME,null,DB_VERSION);
+    public GroupDatabaseManager(Context context) {
+        super(context, DB_NAME, null, DB_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDb) {
         String GROUP_REG_CREATE = "CREATE TABLE society_master (\n" +
-                "  _id INTEGER  PRIMARY KEY AUTOINCREMENT,\n" +
+                "  _id INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
                 "  society_ref_no TEXT,\n" +
                 "  society_name TEXT,\n" +
                 "  society_start_dt TEXT,\n" +
@@ -33,11 +33,25 @@ public class GroupDatabaseManager extends SQLiteOpenHelper {
                 "  user TEXT\n" +
                 ");";
 
-      sqLiteDb.execSQL(GROUP_REG_CREATE);
+        String ACCOUNT_ADD_CREATE = "CREATE TABLE account_masters (\n" +
+                "  _id INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
+                "  society_master_id TEXT,\n" +
+                "  society_account_id TEXT,\n" +
+                "  member_name TEXT,\n" +
+                "  email_id TEXT,\n" +
+                "  photo_id TEXT,\n" +
+                "  phone_no INTEGER,\n" +
+                "  last_meeting_dt TEXT,\n"+
+                "  alert_dttm TEXT,\n"+
+                "  user TEXT\n" +
+                ");";
+
+        sqLiteDb.execSQL(GROUP_REG_CREATE);
+        sqLiteDb.execSQL(ACCOUNT_ADD_CREATE);
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int j, int j1) {
 
     }
 

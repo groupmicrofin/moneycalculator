@@ -16,19 +16,21 @@
     <string name="pin">Pin</string>
     <string name="label.login">Login</string>
     <string name="login">Enter Pin</string>
-    <string name="loanDis"> Loan Disbusment Amount </string>
+    <string name="loanDis"> Loan Disbursement Amount </string>
     <string name="paidAmt"> Paid Amount </string>
     <string name="meetDate"> Meeting Date</string>
     <string name="addMeeting"> Add Meeting </string>
+
     <string name="label.addAcct">Add Account</string>
     <string name="label.addGrp">Add Group</string>
+
     <string name="hint.shareAmt">Enter Share Amount</string>
     <string name="hint.grpRegNo">Enter Group Reg No</string>
     <string name="hint.grpName">Enter Group Name</string>
     <string name="hint.intRate">Enter interest rate per year</string>
     <string name="hint.grpAcId">Enter Group Account Id</string>
     <string name="hint.grpMemberName">Enter Group Member Name</string>
-    <string name="hint.penLoan">Enter Pending Loan Id</string>
+    <string name="hint.pendLoan">Enter Pending Loan Amount</string>
     <string name="hint.emailId">Enter Email Id</string>
     <string name="hint.phone">Enter Phone No</string>
     <string name="hint.ptId">Enter Photo Id</string>
@@ -36,7 +38,17 @@
     <string name="hint.loanDis">Enter Loan Disbursement Amount </string>
     <string name="hint.paidAmt">Enter Total Paid Amount At the Time Of Meeting </string>
     <string name="hint.meetDate">Enter Meeting Date </string>
+
     <string name="title.grpReg">Group Registration</string>
     <string name="title.meetEntry">Meeting Entry</string>
     <string name="title.acctReg">Account Registration</string>
+
+    <string name="suc_grpAdd">Group Added Success</string>
+    <string name="suc_actAdd">Account Added Success</string>
+
+
+    <string name="err_db">DataBase Error</string>
+    <string name="err_grpAdd">Group Added Failed</string>
+    <string name="err_actAdd">Account Add Failed</string>
+
 </resources>

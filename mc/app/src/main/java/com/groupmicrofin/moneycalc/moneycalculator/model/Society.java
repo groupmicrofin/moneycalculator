@@ -16,7 +16,7 @@ public class Society {
     private String societyName;
     private String societyStartDate;
     private double shareAmount;
-    private double intrestRate;
+    private double interestRate;
     private String scheduleFrequency;
 
     private String user;
@@ -61,12 +61,12 @@ public class Society {
         this.shareAmount = shareAmount;
     }
 
-    public double getIntrestRate() {
-        return intrestRate;
+    public double getInterestRate() {
+        return interestRate;
     }
 
-    public void setIntrestRate(double intrestRate) {
-        this.intrestRate = intrestRate;
+    public void setInterestRate(double interestRate) {
+        this.interestRate = interestRate;
     }
 
     public String getScheduleFrequency() {
@@ -139,7 +139,7 @@ public class Society {
     public String toString() {
         return "Society [id=" + id + ", societyRefId=" + societyRefId + ", societyName=" + societyName
                 + ", societyStartDate=" + societyStartDate + ", shareAmount=" + shareAmount + ", intrestRate="
-                + intrestRate + ", scheduleFrequency=" + scheduleFrequency + ", user=" + user + "]";
+                + interestRate + ", scheduleFrequency=" + scheduleFrequency + ", user=" + user + "]";
     }
 
 }
