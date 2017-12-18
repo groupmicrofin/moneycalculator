@@ -11,7 +11,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
+import com.groupmicrofin.moneycalc.moneycalculator.db.MoneyCalcDbContract.AccountRegistrationEntry;
+import com.groupmicrofin.moneycalc.moneycalculator.db.MoneyCalcDbContract;
+import com.groupmicrofin.moneycalc.moneycalculator.db.MoneyCalcOpenHelper;
 import com.groupmicrofin.moneycalc.moneycalculator.util.GroupDatabaseManager;
 
 
@@ -25,6 +27,7 @@ public class AccountRegistrationActivity extends AppCompatActivity {
 
     public void addAccount(View view) {
         String userId = "SYSTEM";//TODO
+
         AccountAddAsyncTask accountAddAsyncTask = new AccountAddAsyncTask();
         accountAddAsyncTask.execute(userId);
     }
@@ -73,24 +76,24 @@ public class AccountRegistrationActivity extends AppCompatActivity {
             //Dynamic System Fields Logic END
 
             accountData = new ContentValues();
-            accountData.put("society_master_id", groupId);
-            accountData.put("society_account_id", grpAcId);
-            accountData.put("member_name", grpMrNm);
-            accountData.put("email_id", email);
-            accountData.put("photo_id", ptId);
-            accountData.put("phone_no", phone);
-            accountData.put("last_meeting_dt", grpLMD);
-            accountData.put("alert_dttm", alertDateTime);
-            accountData.put("user", user);
+            accountData.put(AccountRegistrationEntry.COLMN_GROUP_ID, groupId);
+            accountData.put(AccountRegistrationEntry.COLMN_SOC_AC_ID, grpAcId);
+            accountData.put(AccountRegistrationEntry.COLMN_MEMBER_NM, grpMrNm);
+            accountData.put(AccountRegistrationEntry.COLMN_EMAIL, email);
+            accountData.put(AccountRegistrationEntry.COLMN_PHOTO_ID, ptId);
+            accountData.put(AccountRegistrationEntry.COLMN_PHONE_NUM, phone);
+            accountData.put(AccountRegistrationEntry.COLMN_LAST_MEET_DT, grpLMD);
+            accountData.put(AccountRegistrationEntry.COLMN_ALERT_DTTM, alertDateTime);
+            accountData.put(AccountRegistrationEntry.COLMN_USER, user);
         }
 
         @Override
         protected Long doInBackground(String... userID) {
             long result = 0;
             try {
-                SQLiteOpenHelper dbHelper = new GroupDatabaseManager(AccountRegistrationActivity.this);
+                SQLiteOpenHelper dbHelper = new MoneyCalcOpenHelper(AccountRegistrationActivity.this);
                 SQLiteDatabase dbMngr = dbHelper.getWritableDatabase();
-                result = dbMngr.insert("account_masters", null, accountData);
+                result = dbMngr.insert(AccountRegistrationEntry.TABLE_NAME, null, accountData);
                 dbMngr.close();
             } catch (SQLiteException sqlEx) {
                 result = 0;

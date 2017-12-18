@@ -20,9 +20,21 @@
     <string name="paidAmt"> Paid Amount </string>
     <string name="meetDate"> Meeting Date</string>
     <string name="addMeeting"> Add Meeting </string>
+    <string name="memberId"> Member Id : </string>
+    <string name="totalMeetings"> Total Number Of Meetings: </string>
+    <string name="totalShare"> Total Share Amount : </string>
+    <string name="totalLoanAmt"> Total Loan Amount : </string>
+    <string name="loanAmtIntPaidAmt"> Total Intrest Paid Amount : </string>
+    <string name="pendingPrincilnAmt"> TotalPending Loan Amount : </string>
+    <string name="amtNeedToClAlLn"> Amount Need To Close All Loan : </string>
+    <string name="nxtMeetDt"> Next Meeting Date : </string>
+    <string name="lastMeetDate"> Last Meeting Date : </string>
+
 
     <string name="label.addAcct">Add Account</string>
     <string name="label.addGrp">Add Group</string>
+    <string name="lable.grpActivity">Group Details</string>
+    
 
     <string name="hint.shareAmt">Enter Share Amount</string>
     <string name="hint.grpRegNo">Enter Group Reg No</string>
@@ -45,10 +57,10 @@
 
     <string name="suc_grpAdd">Group Added Success</string>
     <string name="suc_actAdd">Account Added Success</string>
-
+    <string name="suc_MeetAdd">Meeting Added Success</string>
 
     <string name="err_db">DataBase Error</string>
     <string name="err_grpAdd">Group Added Failed</string>
     <string name="err_actAdd">Account Add Failed</string>
-
+    <string name="err_meetAdd">Meeting Add Failed</string>
 </resources>

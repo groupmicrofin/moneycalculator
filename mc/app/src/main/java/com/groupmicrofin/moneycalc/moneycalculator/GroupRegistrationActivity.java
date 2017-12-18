@@ -11,6 +11,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.groupmicrofin.moneycalc.moneycalculator.db.MoneyCalcDbContract.GroupRegistrationEntry;
+import com.groupmicrofin.moneycalc.moneycalculator.db.MoneyCalcDbContract;
+import com.groupmicrofin.moneycalc.moneycalculator.db.MoneyCalcOpenHelper;
 import com.groupmicrofin.moneycalc.moneycalculator.util.GroupDatabaseManager;
 
 public class GroupRegistrationActivity extends AppCompatActivity {
@@ -57,21 +60,21 @@ public class GroupRegistrationActivity extends AppCompatActivity {
             String grpScheduleFreq = "0 0 0 0 0L";
 
             groupData = new ContentValues();
-            groupData.put("society_ref_no", grpRegNo);
-            groupData.put("society_name", grpRegNm);
-            groupData.put("society_start_dt", grpSD);
-            groupData.put("share_amount", grpShareAmt);
-            groupData.put("int_rate", grpIntRt);
-            groupData.put("schedule_frequency", grpScheduleFreq);
+            groupData.put(GroupRegistrationEntry.COLMN_GROUP_REF_NO, grpRegNo);
+            groupData.put(GroupRegistrationEntry.COLMN_GROUP_NAME, grpRegNm);
+            groupData.put(GroupRegistrationEntry.COLMN_GROUP_START_DATE, grpSD);
+            groupData.put(GroupRegistrationEntry.COLMN_GROUP_SHARE_AMT, grpShareAmt);
+            groupData.put(GroupRegistrationEntry.COLMN_GROUP_INTREST_REST, grpIntRt);
+            groupData.put(GroupRegistrationEntry.COLMN_GROUP_SCHEDULE_FREQ, grpScheduleFreq);
         }
 
         @Override
         protected Long doInBackground(String... userID) {
             long result = 0;
             try {
-                SQLiteOpenHelper dbHelper = new GroupDatabaseManager(GroupRegistrationActivity.this);
+                SQLiteOpenHelper dbHelper = new MoneyCalcOpenHelper(GroupRegistrationActivity.this);
                 SQLiteDatabase dbMngr = dbHelper.getWritableDatabase();
-                result = dbMngr.insert("society_master", null, groupData);
+                result = dbMngr.insert(GroupRegistrationEntry.TABLE_NAME, null, groupData);
                 dbMngr.close();
             } catch (SQLiteException sqlEx) {
                 result = 0;

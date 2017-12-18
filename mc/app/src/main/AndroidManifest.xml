@@ -25,8 +25,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GroupActivity" />
-        <activity android:name=".AccountActivity"/>
+        <activity android:label="@string/lable.grpActivity" android:name=".GroupActivity" />
+        <activity android:name=".AccountActivity" />
+        <activity android:name=".meeting_Activity"></activity>
     </application>
 
 </manifest>

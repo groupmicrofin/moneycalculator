@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class GroupDatabaseManager extends SQLiteOpenHelper {
 
-    public static final String DB_NAME = "moneycalc3";
+    public static final String DB_NAME = "moneycalc2";
     //public static final String DB_NAME=null;
     public static final int DB_VERSION = 1;
 
@@ -45,9 +45,17 @@ public class GroupDatabaseManager extends SQLiteOpenHelper {
                 "  alert_dttm TEXT,\n"+
                 "  user TEXT\n" +
                 ");";
-
+        String MEETING_ADD_CREATE = "CREATE TABLE meeting_nobook (\n" +
+                "  _id INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
+                "  society_master_id TEXT,\n" +
+                "  society_account_id TEXT,\n" +
+                "  loan_disburse TEXT,\n" +
+                "  paid_Amount TEXT,\n" +
+                "  meeting_dt TEXT,\n"+
+                ");";
         sqLiteDb.execSQL(GROUP_REG_CREATE);
         sqLiteDb.execSQL(ACCOUNT_ADD_CREATE);
+        sqLiteDb.execSQL(MEETING_ADD_CREATE);
     }
 
     @Override
