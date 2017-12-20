@@ -11,6 +11,7 @@ public class meeting_Activity extends AppCompatActivity {
     Long groupId = 0L;
     String groupName = "";
     String memberName="";
+    String accountId="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +41,7 @@ public class meeting_Activity extends AppCompatActivity {
             groupId = meetingBundle.getLong("grpId");
             groupName = meetingBundle.getString("grpName");
             memberName = meetingBundle.getString("member_name");
+            accountId = meetingBundle.getString("acctId");
             Toast itemToast = Toast.makeText(meeting_Activity.this, "Member Name:"+memberName, Toast.LENGTH_LONG);
             itemToast.show();
         }
@@ -51,6 +53,7 @@ public class meeting_Activity extends AppCompatActivity {
         meetActToMeetReg.putExtra("member_name",memberName);
         meetActToMeetReg.putExtra("grpId",groupId);
         meetActToMeetReg.putExtra("grpName",groupName);
+        meetActToMeetReg.putExtra("acctId",accountId);
         startActivity(meetActToMeetReg);
 
     }

@@ -7,7 +7,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 /**
  * Created by jignesh on 18-12-2017.
  */
-
+import com.groupmicrofin.moneycalc.moneycalculator.db.MoneyCalcDbContract.LoanMasterEntry;
+import com.groupmicrofin.moneycalc.moneycalculator.db.MoneyCalcDbContract.MeetingRegEntry;
 import com.groupmicrofin.moneycalc.moneycalculator.db.MoneyCalcDbContract.GroupRegistrationEntry;
 import com.groupmicrofin.moneycalc.moneycalculator.db.MoneyCalcDbContract.AccountRegistrationEntry;
 public class MoneyCalcOpenHelper extends SQLiteOpenHelper {
@@ -23,18 +24,12 @@ public class MoneyCalcOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
-        String MEETING_ADD_CREATE = "CREATE TABLE meeting_nobook (" +
-                "  _id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "  society_master_id TEXT," +
-                "  society_account_id TEXT," +
-                "  loan_disburse TEXT," +
-                "  paid_Amount TEXT," +
-                "  meeting_dt TEXT"+
-                ")";
+
 
         sqLiteDatabase.execSQL(GroupRegistrationEntry.SQL_CREATE_TABLE);
         sqLiteDatabase.execSQL(AccountRegistrationEntry.SQL_CREATE_AC_TABLE);
-        sqLiteDatabase.execSQL(MEETING_ADD_CREATE);
+        sqLiteDatabase.execSQL(MeetingRegEntry.SQL_CREATE_MEET_TABLE);
+        sqLiteDatabase.execSQL(LoanMasterEntry.SQL_CREATE_LN_TABLE);
     }
 
     @Override
